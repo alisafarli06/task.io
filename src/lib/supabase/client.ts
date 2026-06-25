@@ -5,6 +5,10 @@ const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 let browserClient: SupabaseClient | undefined;
 
+function normalizeSupabaseUrl(url: string) {
+  return url.replace(/\/+$/, "").replace(/\/rest\/v1\/?$/, "");
+}
+
 export function createSupabaseClient() {
   if (!supabaseUrl || !supabaseAnonKey) {
     throw new Error(
@@ -13,7 +17,7 @@ export function createSupabaseClient() {
   }
 
   if (!browserClient) {
-    browserClient = createClient(supabaseUrl, supabaseAnonKey);
+    browserClient = createClient(normalizeSupabaseUrl(supabaseUrl), supabaseAnonKey);
   }
 
   return browserClient;

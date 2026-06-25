@@ -22,22 +22,15 @@ export function TaskColumn({
 }: TaskColumnProps) {
   return (
     <section
-      className={`flex min-h-[28rem] min-w-0 flex-1 flex-col ${showDivider ? "border-l border-zinc-200 pl-6" : ""}`}
+      className={`flex min-h-[28rem] min-w-0 flex-1 flex-col rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm ${showDivider ? "lg:border-l lg:pl-6" : ""}`}
     >
       <div className="mb-4 flex items-center justify-between gap-3">
         <div>
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-zinc-500">
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-zinc-600">
             {title}
           </h2>
           <p className="text-xs text-zinc-400">{tasks.length} tasks</p>
         </div>
-        <button
-          type="button"
-          onClick={() => onAddTask(status)}
-          className="rounded-md border border-zinc-300 px-2.5 py-1 text-xs font-medium text-zinc-700 transition-colors hover:bg-zinc-50"
-        >
-          + Add
-        </button>
       </div>
 
       <div className="flex flex-1 flex-col gap-3">

@@ -187,9 +187,18 @@ export function TaskBoard() {
 
   return (
     <>
-      <TeamBar members={members} onAddMember={handleAddMember} />
+      <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
+        <TeamBar members={members} onAddMember={handleAddMember} />
+        <button
+          type="button"
+          onClick={() => openCreateTask("to_do")}
+          className="rounded-xl border border-sky-200 bg-sky-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-sky-700 hover:shadow-md"
+        >
+          Create Task
+        </button>
+      </div>
 
-      <div className="mt-8 rounded-2xl border border-zinc-200 bg-zinc-50/50 p-6">
+      <div className="mt-4 rounded-2xl border border-zinc-200 bg-zinc-50/50 p-6">
         <div className="grid gap-6 lg:grid-cols-3">
           {TASK_STATUSES.map((status, index) => (
             <TaskColumn
